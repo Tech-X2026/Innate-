@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import VideoCard from './components/VideoCard'
 import RealReason from './components/RealReason'
 import HowToStart from './components/HowToStart'
 import Testimonials from './components/Testimonials'
@@ -33,8 +32,7 @@ export default function App() {
     <div className="page-in">
       <Header />
       <div className="wrap">
-        <Hero onBook={goBooking} />
-        <VideoCard onBook={goBooking} />
+        <Hero />
         <RealReason onBook={goBooking} />
         <HowToStart onBook={goBooking} />
         <Testimonials onBook={goBooking} />

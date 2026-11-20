@@ -5,6 +5,11 @@
 export const YOUTUBE_EMBED =
   'https://www.youtube.com/embed/lfiGHm5Hgm8?start=1&enablejsapi=1&rel=0&playsinline=1&autoplay=1'
 
+// Inline autoplay version: muted (browsers block sound autoplay) + loop,
+// keeps playing until the user presses pause/stop on the player controls.
+export const YOUTUBE_AUTOPLAY =
+  'https://www.youtube.com/embed/lfiGHm5Hgm8?start=1&autoplay=1&mute=1&loop=1&playlist=lfiGHm5Hgm8&controls=1&playsinline=1&rel=0&modestbranding=1'
+
 export const RAZORPAY_LINK = 'https://theinnatebliss.com/initiate-checkout/' // ← replace with your Razorpay Payment Link
 
 export const TESTIMONIALS = [
