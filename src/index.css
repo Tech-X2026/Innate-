@@ -39,7 +39,7 @@ button{font-family:inherit}
 .divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .divider span{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);display:block}
 .eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);text-align:center;font-weight:600}
-.gold-banner{background:var(--gold-grad);color:#1a1405;text-align:center;font-weight:600;font-size:14.5px;line-height:1.45;padding:13px 18px;border-radius:4px;margin:18px 0 22px;box-shadow:0 6px 24px rgba(212,175,55,.25)}
+.gold-banner{background:var(--gold-grad);color:#1a1405;text-align:center;font-weight:600;font-size:14.5px;line-height:1.45;padding:11px 18px;border-radius:4px;margin:14px 0 12px;box-shadow:0 6px 24px rgba(212,175,55,.25)}
 h1{font-family:var(--serif);font-weight:600;font-size:36px;line-height:1.18;text-align:center;color:#fff}
 h1 em{color:var(--gold-light);font-style:italic}
 .lede{text-align:center;color:#d8d2c2;font-size:15.5px;margin:16px auto 0;max-width:480px}
@@ -99,13 +99,11 @@ h1 em{color:var(--gold-light);font-style:italic}
 .vc-foot em{color:#8a6d1b;font-weight:700}
 .hand{font-family:"Segoe Script","Brush Script MT",cursive;font-size:15px;color:var(--gold-light);transform:rotate(-2deg);display:inline-block}
 /* Autoplay VSL card (after headline) — cream card style like reference */
-.autoplay-card{background:linear-gradient(180deg,var(--cream),var(--cream2));color:var(--ink);border-radius:18px;padding:20px 18px 16px;margin:24px 0 8px;border:1px solid #e8d9a8;box-shadow:0 18px 50px rgba(0,0,0,.55)}
-.autoplay-frame{margin-top:14px;border-radius:12px;overflow:hidden;background:#000;border:1.5px solid rgba(138,109,27,.45);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.autoplay-card{background:linear-gradient(180deg,var(--cream),var(--cream2));color:var(--ink);border-radius:18px;padding:14px 16px 10px;margin:10px 0 0;border:1px solid #e8d9a8;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.autoplay-frame{margin-top:10px;border-radius:12px;overflow:hidden;background:#000;border:1.5px solid rgba(138,109,27,.45);box-shadow:0 10px 30px rgba(0,0,0,.35);min-height:360px}
 .autoplay-frame iframe{width:100%;aspect-ratio:16/9;border:0;display:block;background:#000}
-.autoplay-foot{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;font-size:12px;color:#6b6455;text-align:center;line-height:1.5}
-.live-dot{flex:0 0 9px;width:9px;height:9px;border-radius:50%;background:#c0392b;box-shadow:0 0 0 0 rgba(192,57,43,.5);animation:livePulse 1.8s infinite}
-@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(192,57,43,.45)}70%{box-shadow:0 0 0 8px rgba(192,57,43,0)}100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}}
-.autoplay-card .hand{color:#8a6d1b}
+
+
 
 /* sections */
 section{padding:38px 0 6px}
@@ -248,9 +246,8 @@ section{padding:38px 0 6px}
   .strip .srow{gap:48px}
   .strip .sitem{font-size:19px}
   /* VSL autoplay card stretches full width on desktop */
-  .autoplay-card{padding:30px 28px 22px;border-radius:20px;max-width:980px;margin-left:auto;margin-right:auto}
+  .autoplay-card{padding:22px 28px 18px;border-radius:20px}
   .vc-top .t1{font-size:26px}
-  .autoplay-foot{font-size:13px}
   section{padding:56px 0 10px}
   .sec-title{font-size:40px}
   .sec-sub{font-size:16px;max-width:640px}

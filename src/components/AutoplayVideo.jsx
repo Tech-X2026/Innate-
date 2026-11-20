@@ -19,13 +19,6 @@ export default function AutoplayVideo() {
             allowFullScreen
           />
         </div>
-        <div className="autoplay-foot">
-          <span className="live-dot" aria-hidden="true" />
-          <span>Playing now (muted) — tap the speaker icon for sound &nbsp;•&nbsp; Press pause to stop</span>
-        </div>
-        <p style={{ textAlign: 'center', marginTop: 10 }}>
-          <span className="hand">— watch till the end, it matters →</span>
-        </p>
       </div>
     </Reveal>
   )
