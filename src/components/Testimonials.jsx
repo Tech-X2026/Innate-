@@ -1,22 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
 import Reveal from './Reveal'
 import { TESTIMONIALS } from '../data/content'
 
-// Simple carousel: slide transform + auto-play + swipe. No library needed.
+// Infinite auto-scrolling horizontal marquee with seamless loop.
+// Each testimonial is a YouTube video card — click opens the video on YouTube.
+// Items are duplicated so translateX(-50%) creates a seamless infinite loop.
 export default function Testimonials({ onBook }) {
-  const [idx, setIdx] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const startX = useRef(null)
-  const total = TESTIMONIALS.length
-
-  const go = useCallback((n) => setIdx(((n % total) + total) % total), [total])
-
-  useEffect(() => {
-    if (paused) return
-    const t = setInterval(() => setIdx((i) => (i + 1) % total), 6000)
-    return () => clearInterval(t)
-  }, [paused, total])
-
   return (
     <section>
       <Reveal>
@@ -25,71 +13,77 @@ export default function Testimonials({ onBook }) {
           Real clients. <em>Real shifts.</em>
         </h2>
         <p className="sec-sub">
-          Swipe through what business owners say after working on their money patterns. Figures as stated by each client.
+          Watch video testimonials from business owners who broke their money blocks.
         </p>
       </Reveal>
 
       <Reveal delay={100}>
-        <div
-          className="carousel"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-        >
-          <div
-            className="c-viewport"
-            onTouchStart={(e) => (startX.current = e.touches[0].clientX)}
-            onTouchEnd={(e) => {
-              if (startX.current === null) return
-              const dx = e.changedTouches[0].clientX - startX.current
-              if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1))
-              startX.current = null
-            }}
-          >
-            <div className="c-track" style={{ transform: `translateX(-${idx * 100}%)` }}>
-              {TESTIMONIALS.map((t) => (
-                <div className="c-slide" key={t.id}>
-                  <div className="stars">★★★★★</div>
-                  <p className="t-quote">“{t.quote}”</p>
-                  <div className="t-person">
-                    <div className="avatar">{t.initials}</div>
-                    <div>
-                      <div className="n">{t.name}</div>
-                      <div className="r">{t.role}</div>
-                    </div>
-                  </div>
-                  <div className="t-badge-wrap"><span className="t-badge">{t.badge}</span></div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="c-nav">
-            <button className="c-btn" onClick={() => go(idx - 1)} aria-label="Previous testimonial">‹</button>
-            <div style={{ textAlign: 'center' }}>
-              <div className="c-dots">
-                {TESTIMONIALS.map((t, i) => (
-                  <button
-                    key={t.id}
-                    className={i === idx ? 'on' : ''}
-                    onClick={() => go(i)}
-                    aria-label={`Go to testimonial ${i + 1}`}
+        <div className="marquee-wrap" onMouseEnter={() => {}} onMouseLeave={() => {}}>
+          <div className="marquee-track">
+            {TESTIMONIALS.map((t) => (
+              <a
+                href={t.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={t.id}
+                className="marquee-item"
+              >
+                <div className="thumb-wrap">
+                  <img
+                    className="yt-thumb"
+                    src={`https://img.youtube.com/vi/${t.youtubeId}/maxresdefault.jpg`}
+                    alt={t.name}
+                    loading="lazy"
                   />
-                ))}
-              </div>
-              <div className="c-count" style={{ marginTop: 6 }}>{idx + 1} / {total}</div>
-            </div>
-            <button className="c-btn" onClick={() => go(idx + 1)} aria-label="Next testimonial">›</button>
+                  <div className="play-badge">▶ Watch on YouTube</div>
+                </div>
+                <div className="client-info">
+                  <div className="stars">★★★★★</div>
+                  <div className="client-name">{t.name}</div>
+                  <div className="client-role">{t.role}</div>
+                  <div className="client-badge">{t.badge}</div>
+                </div>
+              </a>
+            ))}
+            {/* Duplicate for seamless infinite loop */}
+            {TESTIMONIALS.map((t) => (
+              <a
+                href={t.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={t.id + '-dup'}
+                className="marquee-item"
+              >
+                <div className="thumb-wrap">
+                  <img
+                    className="yt-thumb"
+                    src={`https://img.youtube.com/vi/${t.youtubeId}/maxresdefault.jpg`}
+                    alt={t.name}
+                    loading="lazy"
+                  />
+                  <div className="play-badge">▶ Watch on YouTube</div>
+                </div>
+                <div className="client-info">
+                  <div className="stars">★★★★★</div>
+                  <div className="client-name">{t.name}</div>
+                  <div className="client-role">{t.role}</div>
+                  <div className="client-badge">{t.badge}</div>
+                </div>
+              </a>
+            ))}
           </div>
-        </div>
-        <p className="micro" style={{ marginTop: 12 }}>
-          Results shown are as stated by clients and are not typical. Individual results vary.
-        </p>
-        <div style={{ marginTop: 16 }}>
-          <button className="cta" onClick={onBook}>
-            Book your 1:1 Strategy call @ ₹299
-            <small>Your turn to be the next story</small>
-          </button>
         </div>
       </Reveal>
+
+      <p className="micro" style={{ marginTop: 12 }}>
+        Results shown are as stated by clients and are not typical. Individual results vary.
+      </p>
+      <div style={{ marginTop: 16 }}>
+        <button className="cta" onClick={onBook}>
+          Book your 1:1 Strategy call @ ₹299
+          <small>Your turn to be the next story</small>
+        </button>
+      </div>
     </section>
   )
 }

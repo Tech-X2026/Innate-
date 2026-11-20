@@ -12,50 +12,48 @@ export const YOUTUBE_AUTOPLAY =
 
 export const RAZORPAY_LINK = 'https://theinnatebliss.com/initiate-checkout/' // ← replace with your Razorpay Payment Link
 
+// TESTIMONIALS — video testimonials linked to YouTube (like theinnatebliss.in / .co.in / .com)
+// Replace the placeholder youtubeId values below with the actual testimonial video IDs.
+// Thumbnail: https://img.youtube.com/vi/{youtubeId}/maxresdefault.jpg
 export const TESTIMONIALS = [
   {
     id: 'aarin',
-    quote:
-      'I secured 25 lakhs investment into my company... by the end of Aug we are looking for another 5 cr.',
+    youtubeId: 'lfiGHm5Hgm8',
+    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
     name: 'Aarin',
     role: 'Founder & Entrepreneur • Age 50+',
-    initials: 'AR',
     badge: '₹25 Lakh raised in 2 weeks • First round funding',
   },
   {
     id: 'neelakantappa',
-    quote:
-      'Earlier I was doing same type routine, everyday same routine no result... I am getting 100-120-140 leads.',
+    youtubeId: 'lfiGHm5Hgm8',
+    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
     name: 'Neelakantappa S',
     role: 'Senior Business Owner • Age 70+',
-    initials: 'NS',
     badge: '20–30 leads/mo → 120–140 leads/mo after 1 year stuck',
   },
   {
     id: 'vikram',
-    quote:
-      'I used to carry an invisible ceiling around revenue. Every time our monthly revenue reached ₹10L, a crisis would wipe it out. Working with Payal revealed the root guilt pattern. In 45 days, we scaled past ₹28L with zero panic.',
+    youtubeId: 'lfiGHm5Hgm8',
+    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
     name: 'Vikram M.',
     role: 'Tech Agency Founder',
-    initials: 'VM',
     badge: 'Broke 3-year revenue plateau • Past ₹28L',
   },
   {
     id: 'radhika',
-    quote:
-      'The Ho\u2019oponopono and NLP process dissolved 12 years of generational financial anxiety. I stopped operating in fight-or-flight mode and closed our biggest international client within 3 weeks.',
+    youtubeId: 'lfiGHm5Hgm8',
+    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
     name: 'Radhika S.',
     role: 'Design Director & Consultant',
-    initials: 'RS',
     badge: 'Biggest international client closed in 3 weeks',
   },
   {
     id: 'sanjeev',
-    quote:
-      'I felt like an imposter despite being in business for two decades. Payal does not just give you surface affirmations; she rewires how your nervous system reacts to success.',
+    youtubeId: 'lfiGHm5Hgm8',
+    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
     name: 'Sanjeev K.',
     role: 'Manufacturing Executive',
-    initials: 'SK',
     badge: 'Sustained calm & emotional freedom',
   },
 ]
