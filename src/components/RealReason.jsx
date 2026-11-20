@@ -11,6 +11,7 @@ export default function RealReason({ onBook }) {
         </h2>
       </Reveal>
 
+      <div className="rr-grid">
       <Reveal delay={100}>
         <div className="card-dark">
           <p className="big-quote">
@@ -66,6 +67,7 @@ export default function RealReason({ onBook }) {
           </button>
         </div>
       </Reveal>
+      </div>
     </section>
   )
 }

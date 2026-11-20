@@ -1,8 +1,9 @@
 // All copy from Landing Page Structure_v1.pdf + verified client data
 // from theinnatebliss.com / theinnatebliss.in / theinnatebliss.co.in
 
+// VSL video: https://www.youtube.com/watch?v=lfiGHm5Hgm8&t=1s (starts at 1s)
 export const YOUTUBE_EMBED =
-  'https://www.youtube.com/embed/lfiGHm5Hgm8?enablejsapi=1&rel=0&playsinline=1&autoplay=1'
+  'https://www.youtube.com/embed/lfiGHm5Hgm8?start=1&enablejsapi=1&rel=0&playsinline=1&autoplay=1'
 
 export const RAZORPAY_LINK = 'https://theinnatebliss.com/initiate-checkout/' // ← replace with your Razorpay Payment Link
 
