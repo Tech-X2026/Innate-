@@ -31,16 +31,6 @@ export default function HowToStart({ onBook }) {
               </div>
             ))}
           </div>
-          <div className="seats">
-            <p>
-              <b>Limited Seats.</b> Registration closes soon — <b>99 seats per 2 months</b> only, so every
-              application is reviewed personally.
-            </p>
-            <div className="bar"><i /></div>
-            <p style={{ marginTop: 8, fontSize: 12, color: '#a8a29a' }}>
-              Applications are reviewed in the order they arrive. Early applicants get priority scheduling.
-            </p>
-          </div>
         </div>
       </Reveal>
 
