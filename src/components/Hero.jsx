@@ -20,13 +20,6 @@ export default function Hero() {
       </Reveal>
 
       <AutoplayVideo />
-
-      <Reveal delay={160}>
-        <p className="lede">
-          If you've tried different strategies, pricing models and marketing funnels — yet your income
-          stays at the same level — this 1:1 call is where we find what's <strong>actually</strong> keeping you stuck.
-        </p>
-      </Reveal>
     </>
   )
 }
