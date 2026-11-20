@@ -4,7 +4,7 @@ import { TESTIMONIALS } from '../data/content'
 // Infinite auto-scrolling horizontal marquee with seamless loop.
 // Each testimonial is a YouTube video card — click opens the video on YouTube.
 // Items are duplicated so translateX(-50%) creates a seamless infinite loop.
-export default function Testimonials({ onBook }) {
+export default function Testimonials() {
   return (
     <section>
       <Reveal>
@@ -18,7 +18,7 @@ export default function Testimonials({ onBook }) {
       </Reveal>
 
       <Reveal delay={100}>
-        <div className="marquee-wrap" onMouseEnter={() => {}} onMouseLeave={() => {}}>
+        <div className="marquee-wrap">
           <div className="marquee-track">
             {TESTIMONIALS.map((t) => (
               <a
@@ -75,15 +75,6 @@ export default function Testimonials({ onBook }) {
         </div>
       </Reveal>
 
-      <p className="micro" style={{ marginTop: 12 }}>
-        Results shown are as stated by clients and are not typical. Individual results vary.
-      </p>
-      <div style={{ marginTop: 16 }}>
-        <button className="cta" onClick={onBook}>
-          Book your 1:1 Strategy call @ ₹299
-          <small>Your turn to be the next story</small>
-        </button>
-      </div>
     </section>
   )
 }

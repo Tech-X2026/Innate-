@@ -35,7 +35,7 @@ export default function App() {
         <Hero />
         <RealReason onBook={goBooking} />
         <HowToStart onBook={goBooking} />
-        <Testimonials onBook={goBooking} />
+        <Testimonials />
         <Coach onBook={goBooking} />
         <FinalCta onBook={goBooking} />
       </div>
