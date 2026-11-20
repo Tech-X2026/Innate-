@@ -7,6 +7,7 @@ import Testimonials from './components/Testimonials'
 import Coach from './components/Coach'
 import FloatingCta from './components/FloatingCta'
 import BookingPage from './components/BookingPage'
+import Reveal from './components/Reveal'
 
 // Two pages in one React app (per PDF):
 // Page 1 = landing sequence, Page 2 = booking/payment page (state switch)
