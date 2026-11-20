@@ -36,6 +36,20 @@ export default function App() {
         <HowToStart onBook={goBooking} />
         <Testimonials />
         <Coach onBook={goBooking} />
+
+        <Reveal delay={80}>
+          <div className="disclaimer">
+            <p>
+              <strong style={{ color: '#c9c2ae' }}>Disclaimer:</strong> Results shown are as stated by
+              clients and are not typical. Individual results vary and depend on effort, skills, business
+              model and market conditions. No specific income is guaranteed.
+            </p>
+            <p style={{ marginTop: 8 }}>
+              This site is not a part of the Facebook website or Meta Platforms, Inc., and is not endorsed
+              by Facebook in any way. FACEBOOK is a trademark of Meta Platforms, Inc.
+            </p>
+          </div>
+        </Reveal>
       </div>
       <FloatingCta onBook={goBooking} />
     </div>
