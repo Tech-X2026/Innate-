@@ -182,23 +182,9 @@ section{padding:38px 0 6px}
 .coach-bio p strong{color:#fff}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
 .chip{font-size:11.5px;letter-spacing:.06em;border:1px solid rgba(212,175,55,.45);color:var(--gold-light);border-radius:999px;padding:6px 12px;background:rgba(212,175,55,.07)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
-@media(max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 8px;text-align:center}
-.stat .v{font-family:var(--serif);font-size:20px;color:var(--gold-light);font-weight:700;line-height:1.1}
-.stat .l{font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:4px}
 .sig{margin-top:16px;text-align:right}
 .sig .s1{font-family:"Segoe Script","Brush Script MT",cursive;font-size:28px;color:var(--gold-light);transform:rotate(-3deg);display:inline-block}
 .sig .s2{font-size:11px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-top:2px}
-
-/* final */
-.final{background:linear-gradient(180deg,rgba(212,175,55,.10),rgba(212,175,55,.02));border:1px solid rgba(212,175,55,.3);border-radius:16px;padding:26px 20px;text-align:center;margin-top:26px}
-.ps{font-size:14px;color:#c9c2ae;text-align:center;margin-top:18px;line-height:1.6}
-.ps b{color:var(--gold-light)}
-.disclaimer{margin-top:28px;padding:18px;background:#0f0f0f;border:1px solid rgba(255,255,255,.07);border-radius:10px}
-.disclaimer p{font-size:11px;line-height:1.65;color:#8f8a7e}
-.footer{text-align:center;padding:26px 20px 120px;color:#6f6a5f;font-size:12px;line-height:1.7}
-.footer a{color:#a8a29a}
 
 /* floating CTA */
 .floatbar{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,transparent,rgba(0,0,0,.92) 30%);pointer-events:none;animation:fadeUp .6s ease .5s both}
@@ -276,8 +262,6 @@ section{padding:38px 0 6px}
   /* Coach: larger photo + wider bio */
   .coach-grid{grid-template-columns:340px 1fr;gap:36px}
   .coach-bio p{font-size:16px}
-  .final{padding:40px 48px}
-  .final .sec-title{font-size:34px}
   .floatbar .inner{max-width:720px}
   /* Booking page (Page 2) full-stretch */
   .price-card{max-width:560px;margin-left:auto;margin-right:auto}

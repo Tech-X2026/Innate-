@@ -5,7 +5,6 @@ import RealReason from './components/RealReason'
 import HowToStart from './components/HowToStart'
 import Testimonials from './components/Testimonials'
 import Coach from './components/Coach'
-import FinalCta from './components/FinalCta'
 import FloatingCta from './components/FloatingCta'
 import BookingPage from './components/BookingPage'
 
@@ -37,7 +36,6 @@ export default function App() {
         <HowToStart onBook={goBooking} />
         <Testimonials />
         <Coach onBook={goBooking} />
-        <FinalCta onBook={goBooking} />
       </div>
       <FloatingCta onBook={goBooking} />
     </div>

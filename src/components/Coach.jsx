@@ -44,26 +44,11 @@ export default function Coach({ onBook }) {
               <span className="chip">Subconscious Reprogramming</span>
               <span className="chip">Former Media Journalist</span>
             </div>
-            <div className="stats">
-              <div className="stat"><div className="v">200+</div><div className="l">Business owners</div></div>
-              <div className="stat"><div className="v">100M+</div><div className="l">Impressions</div></div>
-              <div className="stat"><div className="v">5 ★</div><div className="l">Ratings</div></div>
-              <div className="stat"><div className="v">10k+</div><div className="l">Subscribers</div></div>
-            </div>
             <div className="sig">
               <span className="s1">Payal Gulati</span>
               <div className="s2">Founder • The Innate Bliss</div>
             </div>
           </div>
-        </div>
-      </Reveal>
-
-      <Reveal delay={80}>
-        <div style={{ marginTop: 20 }}>
-          <button className="cta" onClick={onBook}>
-            Book your 1:1 Strategy call @ ₹299
-            <small>Talk directly with Payal — not a sales team</small>
-          </button>
         </div>
       </Reveal>
     </section>
