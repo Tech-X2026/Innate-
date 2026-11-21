@@ -277,13 +277,15 @@ button,.cta,.fcta,.link-btn,.backlink,.c-btn{
 }
 .manual-carousel-track{
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
+  align-items:stretch;
   gap:16px;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
+  scroll-padding:0 16px;
   scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
-  padding:8px 4px 14px;
+  padding:8px 16px 14px;
   scrollbar-width:none;
 }
 .manual-carousel-track::-webkit-scrollbar{

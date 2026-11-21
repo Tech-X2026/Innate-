@@ -11,26 +11,35 @@ export default function Testimonials() {
   const handleScroll = () => {
     if (!trackRef.current) return
     const el = trackRef.current
-    const item = el.querySelector('.manual-carousel-item')
-    if (!item) return
-    const itemWidth = item.offsetWidth
-    const gap = 16
-    const index = Math.round(el.scrollLeft / (itemWidth + gap))
-    setActiveIndex(Math.min(Math.max(0, index), TESTIMONIALS.length - 1))
+    const items = el.querySelectorAll('.manual-carousel-item')
+    if (!items.length) return
+    const trackCenter = el.getBoundingClientRect().left + el.offsetWidth / 2
+    let closestIndex = 0
+    let minDiff = Infinity
+    items.forEach((item, i) => {
+      const rect = item.getBoundingClientRect()
+      const itemCenter = rect.left + rect.width / 2
+      const diff = Math.abs(trackCenter - itemCenter)
+      if (diff < minDiff) {
+        minDiff = diff
+        closestIndex = i
+      }
+    })
+    setActiveIndex(closestIndex)
   }
 
   const scrollToIndex = (index) => {
     if (!trackRef.current) return
     const el = trackRef.current
-    const item = el.querySelector('.manual-carousel-item')
-    if (!item) return
-    const itemWidth = item.offsetWidth
-    const gap = 16
-    el.scrollTo({
-      left: index * (itemWidth + gap),
-      behavior: 'smooth',
-    })
-    setActiveIndex(index)
+    const items = el.querySelectorAll('.manual-carousel-item')
+    if (items[index]) {
+      items[index].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+      setActiveIndex(index)
+    }
   }
 
   const prev = () => {
