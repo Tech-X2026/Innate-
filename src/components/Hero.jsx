@@ -4,7 +4,7 @@ import AutoplayVideo from './AutoplayVideo'
 // Gold banner → Headline → Autoplay VSL video (card)
 // Removed: guarantee pill, hero CTA button, worked-with strip, old video card section, lede.
 // Reveal wrappers removed from hero so brand + headline + video appear immediately above the fold.
-export default function Hero() {
+export default function Hero({ onBook }) {
   return (
     <>
       <div className="gold-banner">
@@ -12,10 +12,16 @@ export default function Hero() {
       </div>
 
       <h1>
-        Break hidden money blocks and unlock your <em>next income level</em> in 9 weeks
+        Break <em>hidden money blocks</em> and unlock your next income level in 9 weeks
       </h1>
 
       <AutoplayVideo />
+
+      <div style={{ marginTop: 20 }}>
+        <button className="cta" onClick={onBook}>
+          Book your 1:1 Strategy call @ ₹299
+        </button>
+      </div>
     </>
   )
 }

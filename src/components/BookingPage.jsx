@@ -1,7 +1,64 @@
+import { useState } from 'react'
 import Reveal from './Reveal'
-import { BOOKING_BULLETS, RAZORPAY_LINK, DISCLAIMER } from '../data/content'
+import { BOOKING_BULLETS, RAZORPAY_KEY_ID, RAZORPAY_LINK } from '../data/content'
 
 export default function BookingPage({ onBack }) {
+  const [paymentSuccess, setPaymentSuccess] = useState(null)
+  const [errorMsg, setErrorMsg] = useState('')
+
+  const handlePay = () => {
+    setErrorMsg('')
+    if (typeof window === 'undefined') return
+
+    if (!window.Razorpay) {
+      if (RAZORPAY_LINK) {
+        window.open(RAZORPAY_LINK, '_blank', 'noopener,noreferrer')
+      } else {
+        setErrorMsg('Razorpay payment gateway failed to load. Please try again.')
+      }
+      return
+    }
+
+    try {
+      const options = {
+        key: RAZORPAY_KEY_ID,
+        amount: 29900, // ₹299 in paise
+        currency: 'INR',
+        name: 'The Innate Bliss',
+        description: '1:1 Strategy Call with Payal Gulati',
+        image: '/images/logo.png',
+        handler: function (response) {
+          setPaymentSuccess(response)
+        },
+        prefill: {
+          name: '',
+          email: '',
+          contact: '',
+        },
+        notes: {
+          session: '1:1 Strategy Call',
+          coach: 'Payal Gulati',
+        },
+        theme: {
+          color: '#d4af37',
+        },
+      }
+
+      const rzp = new window.Razorpay(options)
+      rzp.on('payment.failed', function (response) {
+        setErrorMsg(response.error.description || 'Payment failed. Please try again.')
+      })
+      rzp.open()
+    } catch (err) {
+      console.error('Razorpay error:', err)
+      if (RAZORPAY_LINK) {
+        window.open(RAZORPAY_LINK, '_blank', 'noopener,noreferrer')
+      } else {
+        setErrorMsg('Could not open payment window. Please try again.')
+      }
+    }
+  }
+
   return (
     <div className="page-in">
       <header className="topbar">
@@ -10,69 +67,66 @@ export default function BookingPage({ onBack }) {
       </header>
       <div className="wrap">
         <button className="backlink" onClick={onBack}>← Back to details</button>
-        <div className="gold-banner" style={{ marginTop: 18 }}>
-          Limited Seats. Registration Closes Soon — 99 per 2 months
-        </div>
-        <h1 style={{ fontSize: 32 }}>
-          Book Your 1:1 Strategy Call With <em>Payal Gulati</em>
-        </h1>
-        <p className="lede">
-          This 1:1 call is for business owners, entrepreneurs or startup founders who feel stuck on the same
-          income level despite trying different strategies and are ready to move to the next level.
-        </p>
 
-        <Reveal>
-          <div className="card-dark">
-            <p style={{ fontWeight: 600, color: '#fff', fontSize: 16 }}>In this call of up to 1 hour, we'll:</p>
-            <ul className="checklist">
-              {BOOKING_BULLETS.map((b) => (
-                <li key={b}><span className="tick">✓</span><span>{b}</span></li>
-              ))}
-            </ul>
-            <div className="secure">
-              <span>🔒 Secure payment via Razorpay</span><span>UPI</span><span>Cards</span><span>NetBanking</span>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <div className="price-card">
-            <div className="p1">1:1 Private Session • Up to 60 Minutes</div>
-            <div className="p2">₹299</div>
-            <div className="p3">One-time booking • Refunded if your application is not accepted</div>
-          </div>
-          <p className="pay-note">
-            Once you pay <b>₹299</b>, you'll be taken to the next page to complete your <b>application form</b>.
-            We'll review it and contact you if you are qualified.
-          </p>
-          {/* Replace href with your Razorpay Payment Link */}
-          <div style={{ marginTop: 18 }}>
-            <a href={RAZORPAY_LINK} target="_blank" rel="noopener noreferrer" className="cta">
-              Next →
-              <small>It will take you to our secure Razorpay payment gateway</small>
-            </a>
-            <p className="micro">
-              By clicking Next, you agree to be redirected to Razorpay to complete your ₹299 payment securely.
+        {paymentSuccess ? (
+          <div className="booking-card" style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: 44, color: 'var(--gold-light)' }}>✓</div>
+            <h2 style={{ color: '#fff', marginTop: 10 }}>
+              Payment Successful!
+            </h2>
+            <p style={{ color: 'var(--gold-light)', marginTop: 8, fontSize: 14 }}>
+              Payment ID: <strong>{paymentSuccess.razorpay_payment_id}</strong>
             </p>
+            <p style={{ color: '#c9c2ae', marginTop: 14, fontSize: 15, lineHeight: 1.6 }}>
+              Thank you for booking your 1:1 Strategy Call with Payal Gulati.
+              We have received your payment of ₹299. Please check your email for call scheduling details.
+            </p>
+            <button className="backlink" onClick={onBack} style={{ marginTop: 24 }}>
+              ← Return to details
+            </button>
           </div>
-        </Reveal>
+        ) : (
+          <Reveal>
+            <div className="booking-card">
+              <h1 className="booking-title">
+                Book Your 1:1 Strategy Call With <em>Payal Gulati</em>
+              </h1>
 
-        <Reveal delay={80}>
-          <div style={{ marginTop: 22 }}>
-            <p className="eyebrow">What happens after payment?</p>
-            <div className="after">
-              <div className="a"><span className="tick">1</span><span><b>Pay ₹299 securely</b> via Razorpay (UPI / Card / NetBanking).</span></div>
-              <div className="a"><span className="tick">2</span><span><b>Complete your application form</b> carefully — this helps us understand your current income level and goals.</span></div>
-              <div className="a"><span className="tick">3</span><span><b>We review &amp; confirm</b> your call slot. If not accepted, your amount is refunded automatically.</span></div>
+              <p className="booking-sub">
+                For business owners, entrepreneurs or startup founders ready to break income blocks and reach their next level.
+              </p>
+
+              <div className="booking-section-label">
+                In this 1:1 private session, we will:
+              </div>
+
+              <ul className="booking-bullets">
+                {BOOKING_BULLETS.map((b) => (
+                  <li key={b}>
+                    <span className="bullet-dot">•</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="booking-note">
+                Once you pay <strong>₹299</strong>, you'll complete your <strong>application form</strong>. We'll review it and contact you to schedule your call.
+              </div>
+
+              {errorMsg && (
+                <p className="booking-error">
+                  {errorMsg}
+                </p>
+              )}
+
+              <div className="booking-cta-wrap">
+                <button type="button" className="cta" onClick={handlePay}>
+                  Book your 1:1 Strategy call @ ₹299
+                </button>
+              </div>
             </div>
-          </div>
-          <p className="micro" style={{ marginTop: 20 }}>
-            Any questions? <a href="mailto:connect@theinnatebliss.com">connect@theinnatebliss.com</a>
-          </p>
-          <div className="disclaimer" style={{ marginBottom: 40 }}>
-            <p><strong style={{ color: '#c9c2ae' }}>{DISCLAIMER.split(':')[0]}:</strong>{DISCLAIMER.split(':').slice(1).join(':')}</p>
-          </div>
-        </Reveal>
+          </Reveal>
+        )}
       </div>
     </div>
   )

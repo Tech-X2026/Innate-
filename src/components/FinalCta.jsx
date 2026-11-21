@@ -7,7 +7,7 @@ export default function FinalCta({ onBook }) {
       <Reveal>
         <div className="final">
           <p className="eyebrow">One last thing</p>
-          <h2 className="sec-title" style={{ marginTop: 10, fontSize: 27 }}>
+          <h2 className="sec-title" style={{ marginTop: 10 }}>
             Ready to understand what's <em>really</em> happening beneath the surface?
           </h2>
           <p className="sec-sub">
@@ -16,7 +16,6 @@ export default function FinalCta({ onBook }) {
           <div style={{ marginTop: 18 }}>
             <button className="cta" onClick={onBook}>
               Book your 1:1 Strategy call @ ₹299
-              <small>Only 99 members accepted every 2 months</small>
             </button>
           </div>
           <p className="ps">

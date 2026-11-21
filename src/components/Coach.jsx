@@ -4,18 +4,18 @@ export default function Coach({ onBook }) {
   return (
     <section>
       <Reveal>
-        <p className="eyebrow">Meet your coach</p>
-        <h2 className="sec-title" style={{ marginTop: 10 }}>
-          Meet <em>Payal Gulati</em>
+        <h2 className="sec-title">
+          Meet your coach <em>Payal Gulati</em>
         </h2>
       </Reveal>
 
       <Reveal delay={100}>
         <div className="coach-grid">
           <div className="coach-photo">
-            <img src="/images/coach-payal.webp" alt="Payal Gulati — Founder, The Innate Bliss" />
+            <img src="/images/coach-payal.jpg" alt="Payal Gulati — Founder, The Innate Bliss" />
             <div className="cap">
               <div className="n">Payal Gulati</div>
+              <div className="title">Wealth Mindset Coach</div>
               <div className="r">Founder • The Innate Bliss</div>
             </div>
           </div>
@@ -37,17 +37,7 @@ export default function Coach({ onBook }) {
               <strong>200+ business owners</strong> work through their money blocks and build a stronger
               foundation for financial growth.
             </p>
-            <div className="chips">
-              <span className="chip">NLP Master Coach</span>
-              <span className="chip">EFT Specialist</span>
-              <span className="chip">Ho'oponopono Healer</span>
-              <span className="chip">Subconscious Reprogramming</span>
-              <span className="chip">Former Media Journalist</span>
-            </div>
-            <div className="sig">
-              <span className="s1">Payal Gulati</span>
-              <div className="s2">Founder • The Innate Bliss</div>
-            </div>
+
           </div>
         </div>
       </Reveal>

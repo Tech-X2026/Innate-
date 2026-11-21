@@ -1,16 +1,22 @@
 export default function FloatingCta({ onBook }) {
   return (
-    <div className="floatbar">
-      <div className="inner">
-        <button className="fcta" onClick={onBook}>
-          <span>
-            <span className="ft">Book your 1:1 Strategy call @ ₹299</span>
-            <br />
-            <span className="fs">Only 99 seats / 2 months • Refundable if not accepted</span>
-          </span>
-          <span className="fbtn">Book →</span>
-        </button>
-      </div>
+    <div className="float-dock">
+      <button
+        type="button"
+        className="floating-pill"
+        onClick={onBook}
+        aria-label="Book your 1:1 Strategy call @ ₹299"
+      >
+        <span className="pill-shimmer" aria-hidden="true" />
+        <span className="pill-content">
+          <span className="pill-dot" aria-hidden="true" />
+          <span className="pill-text">Book your 1:1 Strategy call @ ₹299</span>
+        </span>
+        <span className="pill-btn">
+          <span>Book</span>
+          <span className="pill-arrow" aria-hidden="true">→</span>
+        </span>
+      </button>
     </div>
   )
 }

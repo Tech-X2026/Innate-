@@ -29,30 +29,30 @@ export default function App() {
   }
 
   return (
-    <div className="page-in">
-      <Header />
-      <div className="wrap">
-        <Hero />
-        <RealReason onBook={goBooking} />
-        <HowToStart onBook={goBooking} />
-        <Testimonials />
-        <Coach onBook={goBooking} />
+    <>
+      <div className="page-in">
+        <Header />
+        <div className="wrap">
+          <Hero onBook={goBooking} />
+          <RealReason />
+          <HowToStart />
+          <Testimonials />
+          <Coach onBook={goBooking} />
 
-        <Reveal delay={80}>
           <div className="disclaimer">
             <p>
-              <strong style={{ color: '#c9c2ae' }}>Disclaimer:</strong> Results shown are as stated by
+              <strong style={{ color: 'var(--gold-light)' }}>Disclaimer:</strong> Results shown are as stated by
               clients and are not typical. Individual results vary and depend on effort, skills, business
               model and market conditions. No specific income is guaranteed.
             </p>
-            <p style={{ marginTop: 8 }}>
+            <p style={{ marginTop: 10 }}>
               This site is not a part of the Facebook website or Meta Platforms, Inc., and is not endorsed
               by Facebook in any way. FACEBOOK is a trademark of Meta Platforms, Inc.
             </p>
           </div>
-        </Reveal>
+        </div>
       </div>
       <FloatingCta onBook={goBooking} />
-    </div>
+    </>
   )
 }

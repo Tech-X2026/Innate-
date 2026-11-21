@@ -10,51 +10,33 @@ export const YOUTUBE_EMBED =
 export const YOUTUBE_AUTOPLAY =
   'https://www.youtube.com/embed/lfiGHm5Hgm8?start=1&autoplay=1&mute=1&loop=1&playlist=lfiGHm5Hgm8&controls=1&playsinline=1&rel=0&modestbranding=1'
 
-export const RAZORPAY_LINK = 'https://theinnatebliss.com/initiate-checkout/' // ← replace with your Razorpay Payment Link
+export const RAZORPAY_KEY_ID = 'rzp_test_U2J2L2L8N9FrA6'
+export const RAZORPAY_KEY_SECRET = 'MUGJ7Xc4AexR11WACdKsGDez'
+export const RAZORPAY_LINK = 'https://theinnatebliss.com/initiate-checkout/'
 
-// TESTIMONIALS — video testimonials linked to YouTube (like theinnatebliss.in / .co.in / .com)
-// Replace the placeholder youtubeId values below with the actual testimonial video IDs.
-// Thumbnail: https://img.youtube.com/vi/{youtubeId}/maxresdefault.jpg
+// TESTIMONIALS — video testimonials linked to YouTube (from theinnatebliss.in)
+// Thumbnail: https://img.youtube.com/vi/{youtubeId}/hqdefault.jpg
 export const TESTIMONIALS = [
   {
-    id: 'aarin',
-    youtubeId: 'lfiGHm5Hgm8',
-    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
-    name: 'Aarin',
-    role: 'Founder & Entrepreneur • Age 50+',
-    badge: '₹25 Lakh raised in 2 weeks • First round funding',
+    id: 'unstoppable-transformation',
+    type: 'youtube',
+    youtubeId: 'axDyJHW3KTA',
+    url: 'https://www.youtube.com/watch?v=axDyJHW3KTA',
+    badge: 'From suicidal to unstoppable',
   },
   {
-    id: 'neelakantappa',
-    youtubeId: 'lfiGHm5Hgm8',
-    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
-    name: 'Neelakantappa S',
-    role: 'Senior Business Owner • Age 70+',
-    badge: '20–30 leads/mo → 120–140 leads/mo after 1 year stuck',
+    id: 'career-growth',
+    type: 'youtube',
+    youtubeId: 'Sr2rN7CB9es',
+    url: 'https://www.youtube.com/watch?v=Sr2rN7CB9es',
+    badge: 'From unemployed to employed in 2 weeks',
   },
   {
-    id: 'vikram',
-    youtubeId: 'lfiGHm5Hgm8',
-    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
-    name: 'Vikram M.',
-    role: 'Tech Agency Founder',
-    badge: 'Broke 3-year revenue plateau • Past ₹28L',
-  },
-  {
-    id: 'radhika',
-    youtubeId: 'lfiGHm5Hgm8',
-    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
-    name: 'Radhika S.',
-    role: 'Design Director & Consultant',
-    badge: 'Biggest international client closed in 3 weeks',
-  },
-  {
-    id: 'sanjeev',
-    youtubeId: 'lfiGHm5Hgm8',
-    youtubeUrl: 'https://www.youtube.com/watch?v=lfiGHm5Hgm8',
-    name: 'Sanjeev K.',
-    role: 'Manufacturing Executive',
-    badge: 'Sustained calm & emotional freedom',
+    id: 'stuck-money-recovered',
+    type: 'instagram',
+    thumb: '/images/reel-stuck-money.jpg',
+    url: 'https://www.instagram.com/reels/DMIBFX_Mi2Z/',
+    badge: 'Stuck money recovered',
   },
 ]
 

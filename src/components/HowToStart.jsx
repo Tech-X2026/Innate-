@@ -1,45 +1,32 @@
 import Reveal from './Reveal'
 import { STEPS } from '../data/content'
 
-export default function HowToStart({ onBook }) {
+export default function HowToStart() {
   return (
     <section>
       <Reveal>
-        <p className="eyebrow">How to get started?</p>
-        <h2 className="sec-title" style={{ marginTop: 10 }}>
-          Simple. <em>Private.</em> By application only.
-        </h2>
-      </Reveal>
+        <div className="ref-box-card">
+          <h2 className="ref-box-title">
+            How to get <em>started</em>
+          </h2>
 
-      <Reveal delay={100}>
-        <div className="card-dark">
-          <div className="steps">
+          <ul className="ref-bullets-list">
             {STEPS.map((s, i) => (
-              <div className="step" key={i}>
-                <div className="num">{i + 1}</div>
-                <div className="st">
+              <li key={i} className="ref-bullet-item">
+                <span className="ref-bullet-dot">•</span>
+                <span className="ref-bullet-text">
                   <strong>{s.strong}</strong>
                   {s.email ? (
-                    <>
-                      {s.rest.split('connect@')[0]}
+                    <span className="ref-bullet-break">
                       <a href="mailto:connect@theinnatebliss.com">connect@theinnatebliss.com</a>
-                    </>
+                    </span>
                   ) : (
                     s.rest
                   )}
-                </div>
-              </div>
+                </span>
+              </li>
             ))}
-          </div>
-        </div>
-      </Reveal>
-
-      <Reveal delay={80}>
-        <div style={{ marginTop: 18 }}>
-          <button className="cta" onClick={onBook}>
-            Book your 1:1 Strategy call @ ₹299
-            <small>Complete the application after booking</small>
-          </button>
+          </ul>
         </div>
       </Reveal>
     </section>
