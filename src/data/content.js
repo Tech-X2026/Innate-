@@ -1,14 +1,14 @@
 // All copy from Landing Page Structure_v1.pdf + verified client data
 // from theinnatebliss.com / theinnatebliss.in / theinnatebliss.co.in
 
-// VSL video: https://www.youtube.com/watch?v=lfiGHm5Hgm8&t=1s (starts at 1s)
+// VSL video: https://www.youtube.com/watch?v=liF9tLtz2pw
 export const YOUTUBE_EMBED =
-  'https://www.youtube.com/embed/lfiGHm5Hgm8?start=1&enablejsapi=1&rel=0&playsinline=1&autoplay=1'
+  'https://www.youtube.com/embed/liF9tLtz2pw?enablejsapi=1&rel=0&playsinline=1&autoplay=1'
 
 // Inline autoplay version: muted (browsers block sound autoplay) + loop,
 // keeps playing until the user presses pause/stop on the player controls.
 export const YOUTUBE_AUTOPLAY =
-  'https://www.youtube.com/embed/lfiGHm5Hgm8?start=1&autoplay=1&mute=1&loop=1&playlist=lfiGHm5Hgm8&controls=1&playsinline=1&rel=0&modestbranding=1'
+  'https://www.youtube.com/embed/liF9tLtz2pw?autoplay=1&mute=1&loop=1&playlist=liF9tLtz2pw&controls=1&playsinline=1&rel=0&modestbranding=1'
 
 export const RAZORPAY_KEY_ID = 'rzp_test_U2J2L2L8N9FrA6'
 export const RAZORPAY_KEY_SECRET = 'MUGJ7Xc4AexR11WACdKsGDez'
