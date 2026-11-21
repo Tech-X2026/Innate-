@@ -99,9 +99,13 @@ h1,h2,h3,.sec-title,.big-quote,.t-quote{
 }
 h1{
   font-size:clamp(1.8rem, 4.4vw, 2.8rem);
+  font-weight:600;
   text-align:center;
   color:#fff;
   margin:8px 0 5px;
+}
+h1 em{
+  font-weight:600;
 }
 .big-quote{
   text-align:center;
@@ -1007,7 +1011,8 @@ section{padding:38px 0 6px}
   .brand{font-size:clamp(36px, 7vw, 48px)}
   .divider{margin:18px auto}
   .gold-banner{max-width:840px;margin:8px auto 7px;text-align:center;font-size:15px;padding:10px 22px}
-  h1{max-width:920px;margin-left:auto;margin-right:auto;margin-top:7px}
+  h1{font-weight:700;max-width:920px;margin-left:auto;margin-right:auto;margin-top:7px}
+  h1 em{font-weight:700}
   .lede{font-size:1.125rem;max-width:740px}
   .guarantee{max-width:780px;padding:18px 22px}
   .guarantee .g1{font-size:1.375rem}
