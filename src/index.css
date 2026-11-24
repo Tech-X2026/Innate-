@@ -798,103 +798,6 @@ section {
   transform: translateX(3px);
 }
 
-/* Booking Page */
-.booking-card {
-  background: linear-gradient(180deg, #161616 0%, #0e0e0e 100%);
-  border: 1.5px solid var(--gold);
-  border-radius: 20px;
-  padding: 34px 22px;
-  margin: 22px auto 40px;
-  box-shadow: 0 16px 48px rgba(0,0,0,.6), 0 0 30px rgba(212,175,55,.1);
-  max-width: 680px;
-}
-
-.booking-title {
-  font-size: clamp(1.65rem, 5vw, 2.25rem);
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: center;
-  color: #fff;
-  margin: 0 0 12px;
-  text-wrap: balance;
-}
-
-.booking-title em {
-  color: var(--gold-light);
-  font-style: normal;
-  font-weight: 700;
-}
-
-.booking-sub {
-  text-align: center;
-  color: #c9c2ae;
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  margin: 0 auto 22px;
-  max-width: 540px;
-}
-
-.booking-section-label {
-  color: var(--gold-light);
-  font-weight: 700;
-  font-size: 1.0625rem;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.booking-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.booking-bullets li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  color: #e8e2cf;
-}
-
-.booking-bullets .bullet-dot {
-  color: var(--gold);
-  font-size: 1.35rem;
-  line-height: 1.2;
-  flex: 0 0 auto;
-}
-
-.booking-note {
-  background: rgba(212,175,55,.06);
-  border: 1px solid rgba(212,175,55,.22);
-  border-radius: 12px;
-  padding: 14px 18px;
-  text-align: center;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: #d8d2c2;
-  margin: 0 0 22px;
-}
-
-.booking-note strong {
-  color: var(--gold-light);
-}
-
-.booking-error {
-  color: #ff6b6b;
-  text-align: center;
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.booking-cta-wrap {
-  margin-top: 6px;
-}
-
 .backlink {
   display: inline-block;
   margin: 18px 0 0;
@@ -1186,35 +1089,6 @@ section {
   .pill-dot {
     width: 8px;
     height: 8px;
-  }
-
-  .booking-card {
-    padding: 44px 40px;
-    margin-top: 28px;
-    margin-bottom: 60px;
-  }
-
-  .booking-title {
-    font-size: 2.25rem;
-  }
-
-  .booking-bullets {
-    max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 18px;
-  }
-
-  .booking-bullets li {
-    font-size: 1.125rem;
-  }
-
-  .booking-note {
-    max-width: 580px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 24px;
-    font-size: 1rem;
   }
 
   .thankyou-card {

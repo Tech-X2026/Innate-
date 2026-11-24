@@ -6,11 +6,9 @@ import HowToStart from './components/HowToStart'
 import Testimonials from './components/Testimonials'
 import Coach from './components/Coach'
 import FloatingCta from './components/FloatingCta'
-import BookingPage from './components/BookingPage'
 import ThankYouPage from './components/ThankYouPage'
+import { RAZORPAY_KEY_ID } from './data/content'
 
-// Three views in one React app:
-// 1 = landing sequence, 2 = booking/payment page, 3 = thank you / assignment page
 export default function App() {
   const [page, setPage] = useState(() => {
     if (typeof window !== 'undefined' && window.location.pathname === '/thank-you') {
@@ -32,11 +30,6 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePop)
   }, [])
 
-  const goBooking = useCallback(() => {
-    setPage('booking')
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [])
-
   const goLanding = useCallback(() => {
     if (typeof window !== 'undefined' && window.location.pathname === '/thank-you') {
       window.history.pushState({}, '', '/')
@@ -54,12 +47,67 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
 
+  const handlePay = useCallback(() => {
+    if (typeof window === 'undefined') return
+
+    if (!RAZORPAY_KEY_ID) {
+      alert('Payment gateway key is not configured. Please contact support.')
+      return
+    }
+
+    const launchRazorpay = () => {
+      try {
+        const options = {
+          key: RAZORPAY_KEY_ID,
+          amount: 29900, // ₹299 in paise
+          currency: 'INR',
+          name: 'The Innate Bliss',
+          description: '1:1 Strategy Call with Payal Gulati',
+          image: '/images/logo.png',
+          handler: function (response) {
+            goThankYou(response)
+          },
+          prefill: {
+            name: '',
+            email: '',
+            contact: '',
+          },
+          notes: {
+            session: '1:1 Strategy Call',
+            coach: 'Payal Gulati',
+          },
+          theme: {
+            color: '#d4af37',
+          },
+        }
+
+        const rzp = new window.Razorpay(options)
+        rzp.on('payment.failed', function (response) {
+          console.warn('Payment failed or closed:', response?.error)
+        })
+        rzp.open()
+      } catch (err) {
+        console.error('Razorpay modal error:', err)
+        alert('Could not open payment window. Please try again.')
+      }
+    }
+
+    if (window.Razorpay) {
+      launchRazorpay()
+    } else {
+      const script = document.createElement('script')
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js'
+      script.async = true
+      script.onload = launchRazorpay
+      script.onerror = () => {
+        alert('Unable to load payment gateway. Please check your internet connection.')
+      }
+      document.body.appendChild(script)
+    }
+  }, [goThankYou])
+
   if (page === 'thank-you') {
     return <ThankYouPage onHome={goLanding} paymentData={paymentData} />
-  }
-
-  if (page === 'booking') {
-    return <BookingPage onBack={goLanding} onSuccess={goThankYou} />
   }
 
   return (
@@ -67,7 +115,7 @@ export default function App() {
       <div className="page-in">
         <Header />
         <div className="wrap">
-          <Hero onBook={goBooking} />
+          <Hero onBook={handlePay} />
           <RealReason />
           <HowToStart />
           <Testimonials />
@@ -86,7 +134,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      <FloatingCta onBook={goBooking} />
+      <FloatingCta onBook={handlePay} />
     </>
   )
 }

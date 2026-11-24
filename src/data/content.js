@@ -9,7 +9,6 @@ export const YOUTUBE_AUTOPLAY =
 
 export const RAZORPAY_KEY_ID =
   import.meta.env.VITE_RAZORPAY_KEY_ID || ''
-export const RAZORPAY_LINK = 'https://theinnatebliss.com/initiate-checkout/'
 
 // Pre-call video for Thank You page: https://www.youtube.com/watch?v=PNQkxCcTrR8
 export const PRECALL_YOUTUBE_EMBED =
@@ -59,11 +58,4 @@ export const STEPS = [
   { strong: 'If your application is not accepted', rest: ', your booking amount will be refunded.' },
   { strong: 'Only 99 members', rest: ' will be accepted every 2 months.' },
   { strong: 'Any questions?', rest: ' Write to us at connect@theinnatebliss.com', email: true },
-]
-
-export const BOOKING_BULLETS = [
-  "Identify what's keeping your income stuck – emotionally, mentally and in your business",
-  "Understand why your hard work and efforts haven't translated into higher income",
-  'Identify the hidden money blocks behind your self-doubt and money fears',
-  'Create a personalised plan to help you overcome these blocks and reach your next income level',
 ]
