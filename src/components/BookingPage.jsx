@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Reveal from './Reveal'
 import { BOOKING_BULLETS, RAZORPAY_KEY_ID, RAZORPAY_LINK } from '../data/content'
 
-export default function BookingPage({ onBack }) {
+export default function BookingPage({ onBack, onSuccess }) {
   const [paymentSuccess, setPaymentSuccess] = useState(null)
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -28,7 +28,11 @@ export default function BookingPage({ onBack }) {
         description: '1:1 Strategy Call with Payal Gulati',
         image: '/images/logo.png',
         handler: function (response) {
-          setPaymentSuccess(response)
+          if (onSuccess) {
+            onSuccess(response)
+          } else {
+            setPaymentSuccess(response)
+          }
         },
         prefill: {
           name: '',

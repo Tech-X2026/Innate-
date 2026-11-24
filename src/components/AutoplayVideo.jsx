@@ -7,7 +7,7 @@ export default function AutoplayVideo() {
   return (
     <Reveal delay={120}>
       <div className="autoplay-card">
-        <div className="autoplay-frame" style={{ marginTop: 0 }}>
+        <div className="autoplay-frame">
           <iframe
             src={YOUTUBE_AUTOPLAY}
             title="Payal Gulati — The Innate Bliss VSL video"

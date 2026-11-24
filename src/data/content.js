@@ -1,18 +1,23 @@
 // All copy from Landing Page Structure_v1.pdf + verified client data
 // from theinnatebliss.com / theinnatebliss.in / theinnatebliss.co.in
 
-// VSL video: https://www.youtube.com/watch?v=liF9tLtz2pw
-export const YOUTUBE_EMBED =
-  'https://www.youtube.com/embed/liF9tLtz2pw?enablejsapi=1&rel=0&playsinline=1&autoplay=1'
-
+// VSL video: https://www.youtube.com/watch?v=P3ZwZZpm6Dc
 // Inline autoplay version: muted (browsers block sound autoplay) + loop,
 // keeps playing until the user presses pause/stop on the player controls.
 export const YOUTUBE_AUTOPLAY =
-  'https://www.youtube.com/embed/liF9tLtz2pw?autoplay=1&mute=1&loop=1&playlist=liF9tLtz2pw&controls=1&playsinline=1&rel=0&modestbranding=1'
+  'https://www.youtube.com/embed/P3ZwZZpm6Dc?autoplay=1&mute=1&loop=1&playlist=P3ZwZZpm6Dc&controls=1&playsinline=1&rel=0&modestbranding=1'
 
-export const RAZORPAY_KEY_ID = 'rzp_test_U2J2L2L8N9FrA6'
-export const RAZORPAY_KEY_SECRET = 'MUGJ7Xc4AexR11WACdKsGDez'
+export const RAZORPAY_KEY_ID =
+  import.meta.env.VITE_RAZORPAY_KEY_ID || ''
 export const RAZORPAY_LINK = 'https://theinnatebliss.com/initiate-checkout/'
+
+// Pre-call video for Thank You page: https://www.youtube.com/watch?v=PNQkxCcTrR8
+export const PRECALL_YOUTUBE_EMBED =
+  'https://www.youtube.com/embed/PNQkxCcTrR8?rel=0&modestbranding=1'
+
+// Assignment Google Form on Thank You page
+export const ASSIGNMENT_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSc0D-W43WbP88YygIQbjX3wYoBf6j-r3g3VMLIZq44ECsb_wA/viewform'
 
 // TESTIMONIALS — video testimonials linked to YouTube (from theinnatebliss.in)
 // Thumbnail: https://img.youtube.com/vi/{youtubeId}/hqdefault.jpg
@@ -48,13 +53,6 @@ export const STUCK_PATTERNS = [
   'You work harder — but nothing moves',
 ]
 
-export const FOR_YOU = [
-  'Your income has been stuck at the same level for over a year, despite trying different strategies',
-  "You've tested pricing models, marketing funnels and hard work — 14-hour days — and nothing moved",
-  "You feel money anxiety, self-doubt or an invisible ceiling you can't name",
-  "You're ready to work on the root cause — not another quick hack",
-]
-
 export const STEPS = [
   { strong: 'Book your call below', rest: ' and complete the application form carefully.' },
   { strong: "We'll review your application", rest: ' and contact you if you are qualified.' },
@@ -69,6 +67,3 @@ export const BOOKING_BULLETS = [
   'Identify the hidden money blocks behind your self-doubt and money fears',
   'Create a personalised plan to help you overcome these blocks and reach your next income level',
 ]
-
-export const DISCLAIMER =
-  'Disclaimer: Results shown are as stated by clients and are not typical. Individual results vary and depend on effort, skills, business model and market conditions. No specific income is guaranteed. This site is not a part of the Facebook website or Meta Platforms, Inc., and is not endorsed by Facebook in any way. FACEBOOK is a trademark of Meta Platforms, Inc.'
