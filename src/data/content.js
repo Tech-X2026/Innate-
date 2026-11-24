@@ -59,3 +59,10 @@ export const STEPS = [
   { strong: 'Only 99 members', rest: ' will be accepted every 2 months.' },
   { strong: 'Any questions?', rest: ' Write to us at connect@theinnatebliss.com', email: true },
 ]
+
+export const BOOKING_BULLETS = [
+  "Identify what's keeping your income stuck – emotionally, mentally and in your business",
+  "Understand why your hard work and efforts haven't translated into higher income",
+  'Identify the hidden money blocks behind your self-doubt and money fears',
+  'Create a personalised plan to help you overcome these blocks and reach your next income level',
+]

@@ -6,13 +6,14 @@ import HowToStart from './components/HowToStart'
 import Testimonials from './components/Testimonials'
 import Coach from './components/Coach'
 import FloatingCta from './components/FloatingCta'
+import BookingPage from './components/BookingPage'
 import ThankYouPage from './components/ThankYouPage'
-import { RAZORPAY_KEY_ID } from './data/content'
 
 export default function App() {
   const [page, setPage] = useState(() => {
-    if (typeof window !== 'undefined' && window.location.pathname === '/thank-you') {
-      return 'thank-you'
+    if (typeof window !== 'undefined') {
+      if (window.location.pathname === '/thank-you') return 'thank-you'
+      if (window.location.pathname === '/booking') return 'booking'
     }
     return 'landing'
   })
@@ -20,18 +21,32 @@ export default function App() {
 
   useEffect(() => {
     const handlePop = () => {
-      if (typeof window !== 'undefined' && window.location.pathname === '/thank-you') {
-        setPage('thank-you')
-      } else {
-        setPage('landing')
+      if (typeof window !== 'undefined') {
+        if (window.location.pathname === '/thank-you') {
+          setPage('thank-you')
+          return
+        }
+        if (window.location.pathname === '/booking') {
+          setPage('booking')
+          return
+        }
       }
+      setPage('landing')
     }
     window.addEventListener('popstate', handlePop)
     return () => window.removeEventListener('popstate', handlePop)
   }, [])
 
+  const goBooking = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', '/booking')
+    }
+    setPage('booking')
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [])
+
   const goLanding = useCallback(() => {
-    if (typeof window !== 'undefined' && window.location.pathname === '/thank-you') {
+    if (typeof window !== 'undefined' && window.location.pathname !== '/') {
       window.history.pushState({}, '', '/')
     }
     setPage('landing')
@@ -47,67 +62,12 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
 
-  const handlePay = useCallback(() => {
-    if (typeof window === 'undefined') return
-
-    if (!RAZORPAY_KEY_ID) {
-      alert('Payment gateway key is not configured. Please contact support.')
-      return
-    }
-
-    const launchRazorpay = () => {
-      try {
-        const options = {
-          key: RAZORPAY_KEY_ID,
-          amount: 29900, // ₹299 in paise
-          currency: 'INR',
-          name: 'The Innate Bliss',
-          description: '1:1 Strategy Call with Payal Gulati',
-          image: '/images/logo.png',
-          handler: function (response) {
-            goThankYou(response)
-          },
-          prefill: {
-            name: '',
-            email: '',
-            contact: '',
-          },
-          notes: {
-            session: '1:1 Strategy Call',
-            coach: 'Payal Gulati',
-          },
-          theme: {
-            color: '#d4af37',
-          },
-        }
-
-        const rzp = new window.Razorpay(options)
-        rzp.on('payment.failed', function (response) {
-          console.warn('Payment failed or closed:', response?.error)
-        })
-        rzp.open()
-      } catch (err) {
-        console.error('Razorpay modal error:', err)
-        alert('Could not open payment window. Please try again.')
-      }
-    }
-
-    if (window.Razorpay) {
-      launchRazorpay()
-    } else {
-      const script = document.createElement('script')
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js'
-      script.async = true
-      script.onload = launchRazorpay
-      script.onerror = () => {
-        alert('Unable to load payment gateway. Please check your internet connection.')
-      }
-      document.body.appendChild(script)
-    }
-  }, [goThankYou])
-
   if (page === 'thank-you') {
     return <ThankYouPage onHome={goLanding} paymentData={paymentData} />
+  }
+
+  if (page === 'booking') {
+    return <BookingPage onBack={goLanding} onSuccess={goThankYou} />
   }
 
   return (
@@ -115,7 +75,7 @@ export default function App() {
       <div className="page-in">
         <Header />
         <div className="wrap">
-          <Hero onBook={handlePay} />
+          <Hero onBook={goBooking} />
           <RealReason />
           <HowToStart />
           <Testimonials />
@@ -134,7 +94,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      <FloatingCta onBook={handlePay} />
+      <FloatingCta onBook={goBooking} />
     </>
   )
 }
