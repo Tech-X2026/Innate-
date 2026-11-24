@@ -1,6 +1,6 @@
 import Reveal from './Reveal'
 
-export default function Coach({ onBook }) {
+export default function Coach() {
   return (
     <section>
       <Reveal>

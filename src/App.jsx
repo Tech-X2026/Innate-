@@ -71,7 +71,7 @@ export default function App() {
           <RealReason />
           <HowToStart />
           <Testimonials />
-          <Coach onBook={goBooking} />
+          <Coach />
 
           <div className="disclaimer">
             <p>
